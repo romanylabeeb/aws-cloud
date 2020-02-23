@@ -130,7 +130,7 @@ resources:
             'use strict';
             const AWS = require('aws-sdk');
             const dynamoDb = new AWS.DynamoDB.DocumentClient();
-            const tableName =  process.env.DYNAMODB_TABLE;
+            const tableName =  process.env.DYNAMODB_TABLE+'test';
             console.log('tableName='+tableName)
             exports.handler = (event, context) => {
             console.log('event'+JSON.stringify(event));
@@ -166,7 +166,7 @@ resources:
 
             function sendResponse(responseObject,responseType,responseData) {
                 let cfnResponse = require('cfn-response');
-                let responseStatus=cfnResponse.SUCCESS;
+                let responseStatus=responseType==true?cfnResponse.SUCCESS:cfnResponse.FAILED;
                 cfnResponse.send(responseObject.event, responseObject.context, responseStatus,responseData);
             }
 
