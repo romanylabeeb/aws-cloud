@@ -18,3 +18,8 @@
 - Get a single country by name.
 
 - Add a new country.
+
+# Acceptance Criteria:
+
+- As a client, I want to deploy countries API and use REST client to test adding, listing and
+getting countries.
