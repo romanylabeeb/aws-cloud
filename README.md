@@ -13,6 +13,8 @@
 
 ● Create endpoints with Lambda Function.
 
--- List all countries.
--- Get a single country by name.
--- Add a new country.
+- List all countries.
+
+- Get a single country by name.
+
+- Add a new country.
