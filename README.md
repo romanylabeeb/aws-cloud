@@ -23,3 +23,7 @@
 
 - As a client, I want to deploy countries API and use REST client to test adding, listing and
 getting countries.
+-------------------------------------
+# Refernces:
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/crpg-ref-responses.html
+
