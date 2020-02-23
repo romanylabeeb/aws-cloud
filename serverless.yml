@@ -146,7 +146,7 @@ resources:
                             "name": "Brazil"
                             }
                         }
-          
+            try{            
             dynamoDb.put(params, (error, result) => {
               if (!error) {
                 console.log("INIT::a new record was added successfully!!");
@@ -157,12 +157,16 @@ resources:
                   sendResponse(responseObject,false,{Status:'FAILED' ,Data:error});
                   }
               });
-              
+                }
+                catch(error){
+                     console.error("catch INIT:Error::"+error);
+                  sendResponse(responseObject,true,{Status:'FAILED' ,Data:error});
+                }
             }
 
             function sendResponse(responseObject,responseType,responseData) {
                 let cfnResponse = require('cfn-response');
-                let responseStatus=responseType==true?cfnResponse.SUCCESS:cfnResponse.FAILED;
+                let responseStatus=cfnResponse.SUCCESS;
                 cfnResponse.send(responseObject.event, responseObject.context, responseStatus,responseData);
             }
 
